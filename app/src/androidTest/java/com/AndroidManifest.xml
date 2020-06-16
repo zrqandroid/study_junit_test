@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zhuruqiao.junittestdemo">
+
+    <!-- Multi-Process Espresso only works on API level 26 and above-->
+    <uses-sdk
+        android:minSdkVersion="26"
+        android:targetSdkVersion="28" />
+
+    <!--
+      This custom androidTest/AndroidManifest.xml is required because the current Gradle DSL
+      doesn't support the ability to define the new "targetProcesses" Instrumentation attribute and
+      to define custom "meta-data" tags that are required in this case.
+      这个自定义的Android清单文件是必须的，因为当前的Gradle的DSL语法没有能力去定义仪表的“targetProgresses”属性而且在当前案列中
+      自定义一个“meta-data”的标签是必须的。
+    -->
+
+    <instrumentation
+        android:name="androidx.test.runner.AndroidJUnitRunner"
+        android:targetPackage="com.zhuruqiao.junittestdemo"
+        android:targetProcesses="*"> <!-- The instrumentation attribute introduced in O -->
+
+        <!--
+          The following is used by AndroidJUnitRunner (AJUR) to init Espresso in the new PID. This
+          is mandatory and is required because AJUR is automatically instantiated by the Android
+          framework itself since it's simply an Instrumentation. However, Espresso is just a testing
+          framework that is used by AJUR so it's responsible to instantiate it on the remote process
+          in order for handle all the actions from the original process.
+          AJUR利用下面的配置让Espresso在一个新的进程id中初始化。这是强制的且必须的，因为AJUR是Android框架本身自动实例化的，
+          因为它只是一个工具，然而，Espresso仅仅是用于AJUR一个测试框架，因此它负责在远程进程上实例化它，以便处理来自原始进程
+          上的所有操作。
+
+        -->
+        <meta-data
+            android:name="remoteMethod"
+            android:value="androidx.test.espresso.remote.EspressoRemote#remoteInit" />
+
+    </instrumentation>
+
+</manifest>

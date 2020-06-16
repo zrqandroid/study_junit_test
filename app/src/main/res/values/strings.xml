@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">JunitTestDemo</string>
+    <string name="type_operand_one_hint">Type Operand 1</string>
+    <string name="type_operant_two_hint">Type Operand 2</string>
+    <string name="add_operation_text">Add</string>
+    <string name="sub_operation_text">Sub</string>
+    <string name="div_operation_text">Div</string>
+    <string name="mul_operation_text">Mul</string>
+    <string name="computationError">Error</string>
+
+    <string name="start_private_activity">Start Private Process Activity</string>
+    <string name="click_me">Click Me!</string>
+    <string name="button_clicked">Button clicked!</string>
+    <string name="hello_world">Hello Espresso!</string>
+    <string name="change_text">Change text taking some time</string>
+    <string name="type_something">type something…</string>
+    <string name="waiting_msg">Waiting for message…</string>
+    <string name="list_selection">Selected: %1$s</string>
+
+    <string-array name="list_items">
+        <item>Espresso</item>
+        <item>Doppio</item>
+        <item>Macchiato</item>
+        <item>Cappuccino</item>
+        <item>Americano</item>
+        <item>Mocha</item>
+        <item>Latte</item>
+    </string-array>
+</resources>
